@@ -20,7 +20,7 @@ Route::get('/booking/{booking}/invoice', [BookingController::class, 'invoice'])
 
     Route::get('/trip/{trip}/bookings', [DashboardController::class, 'tripBookings'])
     ->name('trip.bookings');
-    
+
 
  Route::post('/reviews', [ReviewController::class, 'store'])
     ->name('reviews.store')
@@ -66,3 +66,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+

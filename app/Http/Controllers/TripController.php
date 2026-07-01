@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
-    // دالة لعرض الرحلات السياحية للعميل
+    
     public function index()
     {
         $trips = Trip::all(); 

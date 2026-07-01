@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
-    // دالة لعرض السيارات والانتقالات
+
     public function index()
     {
         $cars = Car::all(); 

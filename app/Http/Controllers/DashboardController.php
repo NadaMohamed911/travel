@@ -111,7 +111,7 @@ return redirect()->back()->with('success', 'Trip added successfully!');
 public function edit($id)
 {
     $trip = Trip::findOrFail($id);
-    return view('edit-trip', compact('trip')); // هنحتاج نعمل الصفحة دي
+    return view('edit-trip', compact('trip')); 
 }
 
 public function update(Request $request, $id)
