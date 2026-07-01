@@ -1,42 +1,72 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-gradient-to-r from-blue-700 via-blue-600 to-green-600 shadow-xl sticky top-0 z-50">
+
     <!-- Primary Navigation Menu -->
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
+
+
+
+ <a href="{{ route('trips.index') }}" class="flex items-center gap-3">
+    <span class="text-4xl">✈️</span>
+
+    <div>
+        <h1 class="text-white text-2xl font-extrabold">
+            Travel Agency
+        </h1>
+
+        <p class="text-blue-100 text-xs">
+            Explore the World
+        </p>
+    </div>
+</a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                 
+<div class="hidden sm:flex items-center gap-8 ml-10">
 
-                    <x-nav-link :href="route('trips.index')" :active="request()->routeIs('trips.index')">
-                            {{ __('All Trips') }}
-                     </x-nav-link>
+@if(Auth::user()->email == 'nada2@gmail.com')
+<a href="{{ route('dashboard') }}"
+class="text-white font-semibold hover:text-yellow-300 transition duration-300">
+📊 Dashboard
+</a>
+@endif
 
+<a href="{{ route('trips.index') }}"
+class="text-white font-semibold hover:text-yellow-300 transition duration-300">
+🌍 Trips
+</a>
 
-                    </x-nav-link>
-                </div>
-            </div>
+<a href="{{ route('bookings.index') }}"
+class="text-white font-semibold hover:text-yellow-300 transition duration-300">
+📅 My Bookings
+</a>
+
+</div>
+</div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                        
+                     <button
+class="flex items-center gap-3 bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition">
 
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
+<div class="w-10 h-10  bg-white rounded-2xl shadow-2xl text-blue-700 flex items-center justify-center font-bold">
+{{ strtoupper(substr(Auth::user()->name,0,1)) }}
+</div>
+
+<div>
+{{ Auth::user()->name }}
+</div>
+
+</button>
+
                     </x-slot>
 
                     <x-slot name="content">
